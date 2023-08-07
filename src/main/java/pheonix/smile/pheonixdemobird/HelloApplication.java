@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application implements EventHandler<ActionEvent> {
+public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
@@ -21,7 +21,12 @@ public class HelloApplication extends Application implements EventHandler<Action
         BorderPane borderPane = new BorderPane();
         Button button = new Button("Click Me");
         borderPane.setCenter(button);
-        button.setOnAction(this);
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Hello!!!!");
+            }
+        });
 
 
         Scene scene = new Scene(borderPane, 320, 240);
@@ -31,11 +36,8 @@ public class HelloApplication extends Application implements EventHandler<Action
     }
 
     public static void main(String[] args) {
+
         launch();
     }
 
-    @Override
-    public void handle(ActionEvent actionEvent) {
-        System.out.println("Hiiiii");
-    }
 }
