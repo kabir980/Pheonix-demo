@@ -9,4 +9,7 @@ module pheonix.smile.pheonixdemobird {
 
     exports pheonix.smile.pheonixdemobird.layoutmanagers;
     opens pheonix.smile.pheonixdemobird.layoutmanagers to javafx.fxml;
+
+    exports pheonix.smile.pheonixdemobird.NumberGuessGame;
+
 }
